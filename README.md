@@ -106,6 +106,8 @@ exported_workflows/
 - El contenido del directorio de salida se elimina completamente en cada ejecución.
 - Cada workflow se descarga directamente desde la API REST, asegurando fidelidad total.
 - Los nombres de archivos coinciden con el nombre del workflow en n8n.
+- **Los workflows archivados en n8n no se exportan.**
+
 
 ---
 

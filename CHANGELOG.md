@@ -4,6 +4,21 @@ Todas las modificaciones relevantes de este proyecto se documentarán aquí.
 
 ---
 
+## [1.0.2] - 2025-06-01
+
+### Documentación
+- Se actualizó el `README.md` para indicar que los workflows archivados no se exportan.
+
+---
+
+## [1.0.1] - 2025-06-01
+
+### Cambiado
+- Se actualizó la consulta SQL para excluir workflows archivados (`isArchived = false`).
+- Como resultado, se eliminaron 5 archivos `.json` de workflows obsoletos en el directorio de exportación.
+
+---
+
 ## [1.0.0] - 2025-06-01
 
 ### Agregado
@@ -15,4 +30,3 @@ Todas las modificaciones relevantes de este proyecto se documentarán aquí.
 - Limpieza completa del directorio de destino antes de exportar.
 
 ---
-

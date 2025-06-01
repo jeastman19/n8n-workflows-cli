@@ -35,17 +35,22 @@ def obtener_datos():
         cursor = conn.cursor()
 
         query = """
-            SELECT f.id, f.name, f."parentFolderId",
-                   we.id AS workflow_id, we.name AS workflow_name
-            FROM folder f
-            INNER JOIN workflow_entity we ON we."parentFolderId" = f.id
-            ORDER BY f.name, we.name;
+            select	f.id as folder_id,
+                    f."name" as folder_name,
+                    f."parentFolderId" as parent_id,
+                    we.id as workflow_id,
+                    we.name as workflow_name,
+                    we."parentFolderId" as workflow_parent_id
+            from	folder f inner join workflow_entity we on
+                        we."parentFolderId" = f.id
+            where	we."isArchived" = false
+            order	by f.name, we.name;
         """
         cursor.execute(query)
         rows = cursor.fetchall()
 
         resultado = {}
-        for folder_id, folder_name, parent_id, workflow_id, workflow_name in rows:
+        for folder_id, folder_name, parent_id, workflow_id, workflow_name, workflow_parent_id in rows:
             if folder_name not in resultado:
                 resultado[folder_name] = {
                     "id": folder_id,
