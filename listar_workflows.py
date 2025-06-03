@@ -88,17 +88,23 @@ def guardar_workflows(data, output_dir):
     output_path.mkdir(parents=True, exist_ok=True)
 
     # Crear carpetas y guardar workflows
+    old_folder_name = ''
     for folder_name, info in data.items():
         folder_path = output_path / folder_name
         folder_path.mkdir(parents=True, exist_ok=True)
+        if old_folder_name != folder_name:
+            old_folder_name = folder_name
+            print(f"Downloading project workflows:: {old_folder_name}")
 
         for wf in info["workflows"]:
             workflow_json = descargar_workflow(wf["id"])
             filename = f"{wf['name']}.json"
-            print(f"Download workflow: {wf['name']}")
+            print(f"    {wf['name']}")
             file_path = folder_path / filename
             with open(file_path, "w", encoding="utf-8") as f:
                 json.dump(workflow_json, f, indent=2, ensure_ascii=False)
+            
+        print("\n\n")
 
 def main():
     parser = argparse.ArgumentParser(description="Exportar workflows de n8n por carpeta desde PostgreSQL y API REST.")

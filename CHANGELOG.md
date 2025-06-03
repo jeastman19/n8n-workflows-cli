@@ -2,6 +2,14 @@
 
 Todas las modificaciones relevantes de este proyecto se documentarán aquí.
 
+
+---
+
+## [1.0.3] - 2025-06-3
+
+### Documentación
+- Se modifica la salida por consola para informar mejor al usuario qué se está haciendo
+
 ---
 
 ## [1.0.2] - 2025-06-01
